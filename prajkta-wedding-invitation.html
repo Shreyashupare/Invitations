@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="emojis.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        .business-toggle {
+            background-color: #ff69b4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .business-toggle:hover {
+            background-color: #ff99cc;
+        }
+        .business-entities {
+            display: block;
+            margin-top: 20px;
+        }
+        .entity-grid {
+            display: flex;
+            justify-content: space-between;
+        }
+        .entity-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .entity-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .entity-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .rainbow-button {
+            background-image: linear-gradient(to right, #ff69b4, #ffa07a, #ffff00, #008000, #0000ff, #4b0082);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .rainbow-button:hover {
+            background-image: linear-gradient(to right, #ff99cc, #ffd7be, #ffff66, #00b300, #0066cc, #7a288a);
+        }
+        .rainbow-text {
+            background-image: linear-gradient(to right, #ff69b4, #ffa07a, #ffff00, #008000, #0000ff, #4b0082);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .rsvp-quote {
+            margin: 20px 0;
+        }
+        .quote-content {
+            text-align: center;
+        }
+        .decorative-line {
+            width: 100px;
+            height: 2px;
+            background-color: #ff69b4;
+            margin: 10px auto;
+        }
+        .quote-text {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        #audioTrigger {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        .audioTriggerContent {
+            text-align: center;
+        }
+        .audioTriggerContent i {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .rsvp-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .groom-namaste, .bride-namaste {
+            margin: 0 20px;
+        }
+        .namaste-image {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <audio id="backgroundMusic" preload="auto">
+        <source src="assets/wedding-song.mp3" type="audio/mpeg">
+    </audio>
+    <div id="audioTrigger" onclick="startAudio()">
+        <div class="audioTriggerContent">
+            <i class="fas fa-music"></i>
+            <span>Play Music 🎶</span>
+        </div>
+    </div>
+    <!-- Emoji Container -->
+    
+    <!-- Logo Section -->
+    <div class="logo-container">
+        <div class="logo-left">
+            <!-- Add your left logo image here -->
+            <img src="assets/jain-logo.png" alt="Family Logo">
+        </div>
+        <div class="logo-right">
+            <!-- Add your right logo image here -->
+            <img src="assets/shantisagar-maharaj.png" alt="Family Logo">
+        </div>
+    </div>
+
+    <!-- Main Title -->
+    <div class="welcome-title">
+        <p>|| जय जिनेंद्र ||</p>
+    </div>
+
+    <!-- Wedding Invitation Title -->
+    <div class="invitation-title">
+        <h1><b>शुभ विवाह</b></h1>
+        <div class="marriage-quote">
+            <p class="marathi-quote">आयुष्याच्या वाटेवरती झाल्या भेटी गाठी हळुवारपणे जुळून आली प्रेमाची नाती हातामध्ये हात घेऊन बांधत आहोत सातजन्माच्या गाठी नियतीच्या फेऱ्यामधुनी विवाहबद्ध होताना जपत आहोत विश्वासाची नाती.</p>
+            <p class="english-quote">तरी या आनंदाच्या क्षणी हवेत आपले शुभाशिर्वाद आमच्या पाठी </p>
+        </div>
+        <div class="marriage-quote">
+            <p class="marathi-quote">हे सस्नेह निमंत्रण खास आपल्यासाठी</p>
+        </div>
+    </div>
+
+    <!-- Background Video Section -->
+     <!-- Removed video line 175 from old file -->
+
+    <!-- Couple Information Section -->
+    <div class="couple-container">
+        <!-- Common Couple Photo -->
+        <div class="couple-photo-container">
+            <img src="assets/prajkta/couple1.jpeg" alt="Bride and Groom" class="couple-photo">
+            <div class="couple-names">
+                <h2>प्राजक्ता & पद्माकर</h2>
+            </div>
+        </div>
+
+        <!-- Individual Photos -->
+        <div class="couple-info">
+            <div class="individual-photo groom-photo">
+                <img src="assets/prajkta/groom.JPG" alt="Prajkta" class="fade-in">
+                <div class="photo-details">
+                    <h2>चि. सौ. कां. प्राजक्ता</h2>
+                    <p>कै. आण्णा पारीसा मुरचिटे यांची नात व श्री. संजय आण्णा मुरचिटे रा. रुई यांची जेष्ठ सुकन्या प्रपौत्र कै. भुपाल दादू हुपरे व सौ. राजश्री आणि श्री. महावीर हुपरे रा. रुई यांचे जेष्ठ सुपुत्र</p>
+                </div>
+            </div>
+            <div class="individual-photo bride-photo">
+                <img src="assets/prajkta/bride.JPG" alt="Padmakar" class="fade-in">
+                <div class="photo-details">
+                    <h2>चि. पद्माकर</h2>
+                    <p>श्री. कलगोंडा पुनगोंडा पाटील यांचे नातू  व श्री. अजित कलगोंडा पाटील रा. किणी यांचे सुपुत्र</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Countdown Timer -->
+    <div class="countdown-container">
+        <h2>आतुरता लग्नाची</h2>
+        <div class="countdown">
+            <div class="countdown-item">
+                <span id="days">00</span>
+                <span>दिवस</span>
+            </div>
+            <div class="countdown-item">
+                <span id="hours">00</span>
+                <span>तास</span>
+            </div>
+            <div class="countdown-item">
+                <span id="minutes">00</span>
+                <span>मिनिट</span>
+            </div>
+            <div class="countdown-item">
+                <span id="seconds">00</span>
+                <span>सेकंद</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Details Section -->
+    <div class="event-details">
+        <div class="event-content">
+            <h2 class="event-timing-title">विवाह मुहूर्त</h2>
+            <div class="event-info">
+                <div class="event-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <div class="event-details-text">
+                        <h3>दिनांक</h3>
+                        <p>शुक्रवार ५/१२/२०२५</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="event-details-text">
+                        <h3>वेळ</h3>
+                        <p>दुपारी १२ वा. २५ मि.</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <i class="fas fa-star"></i>
+                    <div class="event-details-text">
+                        <h3>मुहूर्त</h3>
+                        <p>मिति मार्गशीर्ष कृ. 1, शके १९४७</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Location Section -->
+    <div class="location-container">
+        <h2>विवाह स्थळ</h2>
+        <div class="venue-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3818.9579447831206!2d74.3252838!3d16.8284423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc105849897d59b%3A0xda8e790911f84699!2sM.S.Yadav%20Multipurpose%20Hall!5e0!3m2!1sen!2sin!4v1763829428659!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="venue-details">
+            <a href="https://maps.app.goo.gl/9zodRqrhKBUZyFfm9" target="_blank" class="map-link" style="display:block; text-align:center;"><h3 style="margin:0;">एम.एस. यादव सांस्कृतिक भवन</h3></a>
+            <p>पेट वडगाव</p>
+        </div>
+    </div>
+    <!-- Ending Quote Section -->
+    <div class="rsvp-quote">
+        <div class="quote-content">
+            <div class="decorative-line"></div>
+            <p class="quote-text">आमच्या आयुष्यातील या विशेष दिवशी, आपली उपस्थिती आणि आशिर्वाद हाच आम्हाला मिळू शकणारा सर्वात मौल्यवान आशीर्वाद आहे.</p>
+            <div class="decorative-line"></div>
+            <br>
+            <!-- <p>Please confirm your attendance</p> -->
+            <div class="rsvp-section">
+                <div class="groom-namaste">
+                    <img src="assets/groom-namaste.png" alt="Groom Namaste" class="namaste-image">
+                </div>
+                <!-- Add If requiredonclick="window.open('https://forms.gle/he1RdVgnYfbjtE3bA', '_blank') -->
+                <button class="rsvp-button">धन्यवाद</button>
+                <div class="bride-namaste">
+                    <img src="assets/bride-namaste.png" alt="Bride Namaste" class="namaste-image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2025 Wedding Invitation</p>
+                <div class="business-indicator">
+                    <span class="rainbow-text">Arihant Events - Wedding Decoration Services</span>
+                    <!-- <i class="fas fa-chevron-down blink"></i> -->
+                </div>
+            </div>
+            <div class="footer-right">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+918421182115" style="color:inherit;text-decoration:none;"><p>+91 8421182115</p></a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:mahavirtraders0717@gmail.com" style="color:inherit;text-decoration:none;"></a>
+                    </div>
+                    <div class="contact-item">
+                        <a href="https://maps.app.goo.gl/Woa25AAu98RUMBrz8" target="_blank" class="map-link">
+                            <span><i class="fas fa-map-marker-alt"></i></span>
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <a href="https://www.instagram.com/arihantevent2023" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Business Entities Section -->
+        <div class="business-entities">
+            <!-- page 337 to 411 removed Footer in weddingInvitationMarathi-->
+            
+            <p class="footer-credit"><i class="fas fa-code"></i> With ❤️ by Shreyas</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="emojis.js"></script>
+    <script>
+        // Audio control variables
+        let isPlaying = false;
+        const audio = document.getElementById('backgroundMusic');
+        
+        // Function to start audio
+        function startAudio() {
+            audio.play().catch(error => {
+                console.log('Audio playback failed:', error);
+            });
+            isPlaying = true;
+            // Hide the trigger after first play
+            document.getElementById('audioTrigger').style.display = 'none';
+        }
+
+        // Initialize audio
+        audio.loop = true;
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
