@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Create emoji buttons
-    const emojis = ['❤️', '🎉', '🌹'];
+    const emojis = ['❤️']; // , '🎉', '🌹'
     
     emojis.forEach(emoji => {
         const button = document.createElement('button');

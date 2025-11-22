@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link rel="stylesheet" href="new-design-styles.css">
+    <link rel="stylesheet" href="emojis.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Audio Player -->
+    <audio id="backgroundMusic" preload="auto">
+        <source src="assets/wedding-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="assets/jain-logo.png" alt="Wedding Logo" class="logo">
+                <h1 class="wedding-title">Wedding Invitation</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="couple-names">Prajkta <span class="highlight">&</span> Padmakar</h1>
+                <p class="wedding-date">December 5, 2025</p>
+                <div class="countdown-container" id="countdown">
+                    <div class="countdown">
+                        <div class="countdown-item">
+                            <span id="days">00</span>
+                            <span>Days</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="hours">00</span>
+                            <span>Hours</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="minutes">00</span>
+                            <span>Minutes</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="seconds">00</span>
+                            <span>Seconds</span>
+                        </div>
+                    </div>
+                </div>
+                <button id="audioTrigger" class="btn" onclick="startAudio()">
+                    <i class="fas fa-play"></i> Play Music
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Couple Section -->
+    <section class="section couple-section">
+        <div class="container">
+            <h2 class="section-title">The Happy Couple</h2>
+            <div class="couple-container">
+                <div class="couple-photo">
+                    <img src="assets/prajkta/couple1.jpeg" alt="Prajkta & Padmakar" class="couple-img">
+                </div>
+                <div class="couple-info">
+                    <div class="groom">
+                        <h3>Prajkta Murchite</h3>
+                        <p>Daughter of Mr. Sanjay Murchite & Mrs. Vaishali</p>
+                    </div>
+                    <div class="bride">
+                        <h3>Padmakar Patil</h3>
+                        <p>Son of Mr. Ajit Patil & Mrs. Vina Patil</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details -->
+    <section class="section event-section">
+        <div class="container">
+            <h2 class="section-title">Wedding Details</h2>
+            <div class="event-grid">
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Date</h3>
+                    <p>Friday, December 5, 2025</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Time</h3>
+                    <p>12:25 PM Onwards</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Venue</h3>
+                    <p>M.S. Yadav Cultural Bhavan</p>
+                    <p>Pet Vadgaon, Maharashtra</p>
+                    <a href="https://maps.app.goo.gl/9zodRqrhKBUZyFfm9" target="_blank" class="map-link">View on Map</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section gallery-section">
+        <div class="container">
+            <h2 class="section-title">Our Precious Moments</h2>
+            <p class="section-subtitle">Capturing the journey of our love story</p>
+            <div class="gallery-grid">
+                <!-- Main featured image (wider) -->
+                <div class="gallery-item">
+                    <img src="assets/prajkta/couple0.jpg" alt="Together Forever">
+                    <div class="gallery-caption">
+                        <h3>Together Forever</h3>
+                        <p>Our journey begins...</p>
+                    </div>
+                </div>
+                
+                <!-- Portrait images -->
+                <!-- <div class="gallery-item">
+                    <img src="assets/prajkta/bride.jpeg" alt="Beautiful Bride">
+                    <div class="gallery-caption">
+                        <h3>Beautiful Bride</h3>
+                        <p>Radiant and joyful</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="assets/prajkta/groom.jpeg" alt="Handsome Groom">
+                    <div class="gallery-caption">
+                        <h3>Handsome Groom</h3>
+                        <p>Looking dapper</p>
+                    </div>
+                </div> -->
+                
+                <!-- Add more images as needed -->
+                <div class="gallery-item">
+                    <img src="assets/prajkta/couple2.jpg" alt="Romantic Moment">
+                    <div class="gallery-caption">
+                        <h3>Romantic Moment</h3>
+                        <p>Love in the air</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="assets/prajkta/couple3.jpg" alt="Laughing Together">
+                    <div class="gallery-caption">
+                        <h3>Laughing Together</h3>
+                        <p>Joyful moments</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="assets/prajkta/couple4.jpg" alt="Dancing">
+                    <div class="gallery-caption">
+                        <h3>Dancing</h3>
+                        <p>Moving to the rhythm of love</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gallery Navigation -->
+            <!-- <div class="gallery-nav">
+                <button class="gallery-nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="gallery-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <button class="gallery-nav-btn next"><i class="fas fa-chevron-right"></i></button>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="arihant-events">
+                        <h3>Arihant Events</h3>
+                        <p>Professional Wedding Planners</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone"></i> +91 8421182115</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-links">
+                        <a href="tel:+918421182115" class="social-link"><i class="fas fa-phone"></i></a>
+                        <a href="https://wa.me/918421182115" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/arihantevent2023" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://maps.app.goo.gl/Woa25AAu98RUMBrz8" class="social-link"><i class="fas fa-map-marker-alt"></i></a>
+                    </div>
+                    <p class="copyright">&copy; 2025 Wedding Invitation. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Audio control variables
+        let isPlaying = false;
+        const audio = document.getElementById('backgroundMusic');
+        
+        // Function to start audio
+        function startAudio() {
+            if (isPlaying) {
+                audio.pause();
+                document.getElementById('audioTrigger').innerHTML = '<i class="fas fa-play"></i> Play Music';
+            } else {
+                audio.play().then(() => {
+                    document.getElementById('audioTrigger').innerHTML = '<i class="fas fa-pause"></i> Pause Music';
+                }).catch(error => {
+                    console.log('Audio playback failed:', error);
+                });
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Initialize audio
+        audio.loop = true;
+    </script>
+</body>
+</html>
